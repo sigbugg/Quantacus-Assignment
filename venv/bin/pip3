@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/baggu/Quantacus Flask/venv/bin/python3" "$0" "$@"
+'''exec' "/Users/baggu/Quantacus Flask/venv/bin/python" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

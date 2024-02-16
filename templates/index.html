@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Quantacus Assignment</title>
+<script src="/static/js/script.js" defer></script>
+{% endblock %}
+
+{% block body %} 
+<h1 style="text-align:center;">Wikipedia Page Summary and Paraphrase using LLMs</h1>
+
+<form method="post">
+    <div style="text-align:center;">
+        <input type="text" name="page_name" placeholder="Put the page name here" required>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<!-- Hidden input to store page_name -->
+<input type="hidden" id="pageName" value="{{ page_name }}">
+
+
+<!-- Display error message if exists -->
+{% if error %}
+<div style="color: red; text-align: center;"><h2>{{ error }}</h2></div>
+{% endif %}
+
+<!-- Display sections if exists -->
+{% if sections %}
+<div style="text-align:center; margin-top: 20px;">
+    <h3>Sections:</h3>
+    <ul>
+        {% for section in sections %}
+        <li onclick="selectSection(this, '{{ section }}')">{{ section }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<!-- Buttons for summarizing and paraphrasing -->
+<div id="action-buttons" style="text-align:center; display:none;">
+    <button onclick="performAction('summarize')">Summarize Section</button>
+    <button onclick="performAction('paraphrase')">Paraphrase Section</button>
+</div>
+
+{% endblock %}

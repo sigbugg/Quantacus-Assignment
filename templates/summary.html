@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Quantacus Summary Result</title>
+{% endblock %}
+
+{% block body %}
+<div style="text-align:center;">
+    <h1>Summary: </h1>
+    <h3>"{{ section_title }}" of "{{ page_name }}"</h3>
+    <!-- Display the summary -->
+    {% if summary %}
+    <div class="summary">
+        <p>{{ summary }}</p>
+    </div>
+    {% else %}
+    <p>No summary available for the selected section.</p>
+    {% endif %}
+    
+    <!-- Button to paraphrase the summary -->
+    <form action="/paraphrase" method="post">
+        <input type="hidden" name="page_name" value="{{ page_name }}">
+        <input type="hidden" name="section_title" value="{{ section_title }}">
+        <input type="hidden" name="summary" value="{{ summary }}">
+        <button type="submit">Paraphrase Summary</button>
+    </form> 
+
+    <!-- Button to go back to the home page -->
+    <a href="/"><button type="button">Back to Home</button></a>
+</div>
+{% endblock %}

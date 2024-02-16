@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Quantacus Paraphrase Result</title>
+{% endblock %}
+
+{% block body %}
+<div style="text-align:center;">
+    <h1>Paraphrase Result</h1>
+    <h3>"{{ section_title }}" of "{{ page_name }}"</h3>  
+    <!-- Display the paraphrase result -->
+    {% if paraphrase %}
+    <div class="paraphrase">
+        <p>{{ paraphrase }}</p>
+    </div>
+    {% else %}
+    <p>No paraphrase available.</p>
+    {% endif %}
+    
+    <!-- Button to go back to the home page -->
+    <a href="/"><button type="button">Back to Home</button></a>
+
+</div>
+{% endblock %}

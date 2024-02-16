@@ -1,0 +1,132 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #3e3d3c;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 3rem; /* larger heading */
+    text-shadow: 2px 2px 4px #000000; /* text shadow for better visibility */
+}
+
+h2,h3 {
+    color: #adc6c5;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 3rem; /* larger heading */
+    text-shadow: 2px 2px 4px #000000; /* text shadow for better visibility */
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="text"], button, select {
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease; /* smooth transition for interactions */
+}
+
+input[type="text"] {
+    width: 300px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+input[type="text"]:hover {
+    background-color: #bfcad5; /* hover effect */
+    color: #0e0e0d;
+    box-shadow: 0 0 8px 2px #ffffff; /* glowing effect on hover */
+}
+
+
+button {
+    background-color: #29a54c;
+    color: #080707;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover, select:hover {
+    background-color: #25f039; /* hover effect */
+    color: #0e0e0d;
+    box-shadow: 0 0 8px 2px #ffffff; /* glowing effect on hover */
+}
+
+/*
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+
+li {
+    display: inline-block;
+    background-color: #ffffff;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* smooth transition for interactions 
+    cursor: pointer;
+} 
+
+
+li:hover {
+    transform: translateY(-5px); /* subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* shadow effect 
+}
+*/
+
+.error, .summary, .paraphrase {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.summary , .paraphrase{
+    background-color: rgba(255,255,255,0.3);
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 80%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+ul {
+    list-style-type: none; /* No bullets */
+    padding: 0; /* No padding */
+    text-align: center;
+}
+
+li {
+    background-color: #ffffff; /* White background */
+    margin: 10px 0; /* 10px margin above and below each list item */
+    padding: 10px 20px; /* 10px padding above and below the text inside each list item, 20px on the sides */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Slight shadow for depth */
+    display: inline-block; /* Align items side by side */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+li:hover {
+    background-color: #9393e3; /* Slightly different background on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Larger shadow on hover for a "lifted" effect */
+    box-shadow: 0 0 8px 2px #ffffff; /* glowing effect on hover */
+}
+
+.selected {
+    background-color: #181f31; /* Slightly different background on hover */
+    box-shadow: 0 4px 8px rgba(208, 237, 235, 0.2); /* Larger shadow on hover for a "lifted" effect */
+    color: #e7eff0;
+}

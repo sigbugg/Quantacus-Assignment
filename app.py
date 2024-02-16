@@ -10,11 +10,15 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def call_openai_gpt(text,task):
     if task == "summarize":
-        system = "You are an expert that specializes in generating concise content summary."
-        content = f"Summarize the following text:\n\n{text}\n\n"
+        system = """You are an expert in writing summary.
+        """
+        content = f"""Summarize the following input text:\n\n{text}\n\n
+        *****Only return the summarized sentences!"""
     elif task == "paraphrase":
-        system= "You are an expert in paraphrasing while preserving the original meaning"
-        content = f"Paraphrase the following text :\n\n{text}\n\n"
+        system= """You are an expert in paraphrasing.
+        """
+        content = f"""Paraphrase the following input text :\n\n{text}\n\n
+        *****Only return the paraphrased sentences!"""
 
     messages =  [
         {'role':'system', 'content': system},

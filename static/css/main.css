@@ -92,11 +92,19 @@ li:hover {
     font-size: 1.2rem;
 }
 
-.summary , .paraphrase{
+.summary{
     background-color: rgba(255,255,255,0.3);
     padding: 20px;
     border-radius: 5px;
     display: inline-block;
+    max-width: 80%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.paraphrase{
+    background-color: rgba(255,255,255,0.3);
+    padding: 20px;
+    border-radius: 5px;
     max-width: 80%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }

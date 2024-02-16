@@ -1,10 +1,13 @@
 from flask import Flask, request, render_template
 import wikipediaapi, openai, os
+from flasgger import Swagger
 
 # Assume you have a summarization function or API client set up
 # from summarizer import summarize
 
 app = Flask(__name__)
+Swagger(app)
+
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
@@ -60,6 +63,36 @@ def home():
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
+    
+    """
+    Summarize the text from a Wikipedia section
+    ---
+    tags:
+      - Summarization
+    parameters:
+      - name: page_name
+        in: formData
+        type: string
+        required: true
+        description: The name of the Wikipedia page
+      - name: section_title
+        in: formData
+        type: string
+        required: true
+        description: The title of the section to summarize
+    responses:
+      200:
+        description: A paraphrased version of the text.
+        schema:
+          type: object
+          properties:
+            paraphrase:
+              type: string
+              example: "This is a paraphrased version of the section."
+      400:
+        description: Invalid input or missing parameters.
+    """
+    
     # Extract the page name and section title from the form data
     page_name = request.form.get('page_name')
     section_title = request.form.get('section_title')
@@ -86,6 +119,45 @@ def summarize():
 
 @app.route('/paraphrase', methods=['POST'])
 def paraphrase():
+    
+    """
+    Summarize the text from a Wikipedia section
+    ---
+    tags:
+      - Paraphrasing
+    parameters:
+      - name: page_name
+        in: formData
+        type: string
+        required: true
+        description: The name of the Wikipedia page
+      - name: section_title
+        in: formData
+        type: string
+        required: true
+        description: The title of the section to summarize
+      - name: summary
+        in: formData
+        type: string
+        required: false
+        description: The text to paraphrase.
+    responses:
+      200:
+        description: A paraphrased version of the text.
+        schema:
+          type: object
+          properties:
+            summary:
+              type: string
+        examples:
+          application/json: 
+            summary: "This is the summarized text of the requested Wikipedia section."
+      400:
+        description: Invalid input or missing parameters.
+
+    """
+    
+    
     page_name = request.form.get('page_name')
     section_title = request.form.get('section_title')
     summary = request.form.get('summary')  # This will hold the summary if it's being passed directly
